@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 struct move{
 	int r,c,score;
 };
@@ -47,9 +48,9 @@ struct TicTacToe{
 
 	void player_move(){
 		while (true){
-			std::cout << "Enter an empty cell (1 - 9): ";
+			cout << "Enter an empty cell (1 - 9): ";
 			int cell;
-			std::cin >> cell;
+			cin >> cell;
 			int r = (cell -1)/3, c =(cell-1)%3;
 			if (cell >= 1 && cell <=9 && grid[r][c] == ' '){
 				grid[r][c]=player;
@@ -105,8 +106,8 @@ struct TicTacToe{
 
 	void play(){
 		while (true) {
-			std::cout << "Which symbol (X or O, X goes first)? ";
-			std::cin >> player;
+			cout << "Which symbol (X or O, X goes first)? ";
+			cin >> player;
 			if (player == 'X' || player == 'O'){
 				break;
 			}
@@ -120,46 +121,46 @@ struct TicTacToe{
 			player_move();
 			print();
 			if (win()==true){
-				std::cout << "Player wins!\n";
+				cout << "Player win\n";
 				return;
 			} else if (tie()){
-				std::cout << "Tie!\n";
+				cout << "Tie\n";
 				return;
 			}
-			std::cout << "Computer is making move\n";
+			cout << "Computer is making move\n";
 			computer_move();
 			print();
 			if (win()==true){
-				std::cout << "Computer win\n";
+				cout << "Computer win\n";
 				return;
 			} else if (tie()){
-				std::cout << "Tie\n";
+				cout << "Tie\n";
 				return;
 			}
 		}
 	}
 
 	void print() {
-		std::cout << '\n';
+		cout << '\n';
 		for (int i=0; i <3; i++){
 			if (i){
-				std::cout << "-----------\n";
+				cout << "-----------\n";
 			}
 			for (int j =0; j< 3; j++){
 				if (j){
-					std::cout << "|";
+					cout << "|";
 				}
-				std::cout << ' ';
+				cout << ' ';
 				if (grid[i][j] == ' '){
-					std::cout << 3*i+j+1;
+					cout << 3*i+j+1;
 				} else{
-					std::cout << grid[i][j];
+					cout << grid[i][j];
 				}
-				std::cout << ' ';
+				cout << ' ';
 			}
-			std::cout << '\n';
+			cout << '\n';
 		}
-		std::cout << '\n';
+		cout << '\n';
 	}
 };
 
